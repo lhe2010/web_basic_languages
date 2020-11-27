@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ex15</title>
+</head>
+<body>
+
+	<fieldset>
+		<legend>회원가입 폼</legend>
+		<form action="">
+			<p><label for="name">이름 : </label><input type="text" name="name" id="name" required>
+			<p><label for="id">아이디 : </label><input type="text" name="id" id="id" required>
+			<p><label for="pwd">비밀번호 : </label><input type="password" name="pwd" id="pwd" required>
+			<p><label for="age">나이 : </label><input type="text" name="age" id="age" maxlength="3">
+			<p>성별 :
+				<input type="radio" name="gender" id="gender" value="m">남자
+				<input type="radio" name="gender" id="gender" value="f">여자
+			</p>
+			<p>취미 : 
+					<input type="checkbox" name="hobby" value="sleep">잠자기
+					<input type="checkbox" name="hobby" value="dance">춤추기
+			</p>
+			<p>
+				<label for="trip">가고싶은 여행지는
+					<select id="trip" name="trip">
+						<option value="london" selected>런던</option>
+						<option value="paris">파리</option>
+						<option value="rome">로마</option>
+					</select>
+				 </label>
+			</p>
+			<p><label for="usermemo">메모 : </label></p>
+			<p><textarea name="usermemo" id="usermemo" cols="50" rows="10"></textarea></p>
+			<p>
+				<input type="submit" value="회원가입">
+				<input type="reset" value="다시쓰기">
+			</p>
+			
+			
+		</form>
+	</fieldset>
+
+</body>
+</html>

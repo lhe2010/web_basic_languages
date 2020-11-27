@@ -40,9 +40,11 @@
 	 <form action="#" method="get" name="fieldSetTest">
 	 	<fieldset>
 	 		<legend>[인적사항입력]</legend>
+	 		<!-- 명시적 레이블 -->
 		 	<p><label for="name">이름 	: </label><input type="text" id="name"></p>
 		 	<p><label for="contact">전화번호 : </label><input type="text" id="contact"></p>
-		 	<p>주소 	: <input type="text"></p>
+		 	<!-- 암묵적 레이블 -->
+		 	<p><label>주소 	: <input type="text"></label></p>
 	 	</fieldset>
 	 </form>
 </body>

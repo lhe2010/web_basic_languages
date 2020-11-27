@@ -12,14 +12,15 @@
 		- 기본 크기는 20글자이며 size 속성으로 필드의 크기를 변경할 수 있다. 
 		- 자주 사용되어지는 옵션으로는 required, readonly, placeholder 등 이있다. 
 	 -->
-	<form >
+	<!-- <form method="post" > url주소 뒤에 전송되는 데이터가 보이지 않는다. -->
+	<form> <!-- url주소 ?뒤에 전송되는 데이터가 보임 -->
 		<fieldset>
 			<legend>인적사항</legend>
-			<p>인증번호 : <input type="text" required></p>
-			<p>이름 : <input type="text" required autofocus></p>
-			<p>나이 : <input type="text" size="5"></p>
-			<p>생일 : <input type="text" placeholder="8자리 입력"></p>
-			<p>거주지 : <input type="text" value="서울" readonly></p>
+			<p><label>인증번호 : <input type="text" name="code" required></label></p>
+			<p><label>이름 : <input type="text" name="name" required autofocus></label></p>
+			<p><label>나이 : <input type="text" name="age" size="10" maxlength="2"></label></p>
+			<p><label>생일 : <input type="text" name="birth" placeholder="8자리 입력"></label></p>
+			<p><label>거주지 : <input type="text" name="address" value="서울" readonly></label></p>
 			<p>
 				<input type="submit" value="전송">
 				<input type="reset" value="초기화">
