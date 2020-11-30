@@ -1,0 +1,16 @@
+*		모든 요소에 
+h2 		h2태그에
+h2,h3,h4		여러 태그에 
+
+#nav1		id가 nav1인 것에
+h2#nav1		id가 nav1인 h1태그에 (띄어쓰기x)
+
+.nav1		클래스가 nav1인 것에
+p.nav1 		클래스가 nav1인 p태그에
+
+.type2>p		type2 클래스의 직계자손 중 p에
+cf) .type2 p	(꺽쇠가 없으면) type2 클래스 아래 자손까지 모든 p에
+    [응용] .type1 > .type2 > p	type1클래스의 자손중 type2클래스의 자손인 p에
+.type2>#nav1	 type2 클래스의 자식중 id가 nav1인것에
+
+input[type="text"]	input타입에서 type이 text인 것에
