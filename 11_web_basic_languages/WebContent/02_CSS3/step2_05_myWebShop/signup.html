@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sign in</title>
+</head>
+<body>
+
+	<form action="">
+		<fieldset >
+			<legend> 회원정보입력 </legend>
+			<p><label>아이디 <input type="text" name="id" required></label> <input type="button" value="중복검사" onclick="alert('아이디중복확인화면')"></p>
+			<p><label>패스워드 <input type="password" name="password" required></label> </p>
+			<p><label>패스워드 확인 <input type="password" name="password_check" required></label></p>
+			<p><label>이름 <input type="text" name="name" required></label></p>
+			<p><label>휴대폰 번호 <input type="tel" name="tel" patter="[0-9]{3}-[0-9]{4}-[0-9]{4}" title="###-####-####" required></label></p>
+			<p><label>이메일 <input type="text" name="email"></label> </p>
+			<p><label>생일 <input type="date" name="birthday"></label> </p>
+			<p><label>홈페이지 <input type="url" name="homepage" required></label></p>
+			<p>성별 : 
+				<input type="radio" name="gender" value="m">남자
+				<input type="radio" name="gender" value="f">여자
+			</p>
+		</fieldset>
+		<p>
+			<input type="submit" value="제출" size="500">
+			<input type="reset" value="초기화">
+		</p>
+	</form>
+	
+
+</body>
+</html>
