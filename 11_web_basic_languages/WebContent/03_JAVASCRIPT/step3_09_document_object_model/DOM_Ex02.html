@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Name과 자바스크립트</title>
+</head>
+<body>
+	<p> 
+ 		<input type="checkbox" name="subject" value="html">html
+ 		<input type="checkbox" name="subject" value="css">css
+ 		<input type="checkbox" name="subject" value="javascript">javascript
+ 		<input type="button" value="버튼" onclick="process1()">
+	 </p>
+	 
+ <script type="text/javascript">
+ 	function process1() {
+ 		alert("process1() is running...");
+ 		console.log(document.getElementsByName("subject").length);
+ 		console.log("===================");
+ 		
+ 		var tempData = document.getElementsByName("subject");
+ 		for(var i = 0; i < tempData.length; i++){
+ 			console.log(tempData[i].value);
+ 		}
+ 	}
+ 	
+ </script>
+</body>
+</html>

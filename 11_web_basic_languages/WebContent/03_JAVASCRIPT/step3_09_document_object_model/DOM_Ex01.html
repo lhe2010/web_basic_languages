@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Id와 자바스크립트</title>
+</head>
+<body>
+	<!-- 
+		# 문서 객체 모델 (DOM : Document Object Model)
+		 - 웹페이지가 적재되면 브라우저는 DOM을 실행한다. 
+		 - DOM은 트리로 표현하며 트리에 있는 하나의 요소를 노드라고 한다. 
+		 - 관련용어 : 부모노드, 자식노드, 형제노드
+	 -->
+	 <fieldset>
+	 	<p> 
+	 		<label for="id">아이디 : </label><input type="text" id="id" autofocus="autofocus">
+	 		<input type="button" value="버튼1" onclick="process1()">
+	 	</p>	 		
+	 	<p> 
+	 		<label for="subject">과목 : </label>
+	 		<input type="checkbox" id="subject_html" name="subject" value="html">html
+	 		<input type="checkbox" id="subject_css"  name="subject" value="css">css
+	 		<input type="checkbox" id="subject_javascript"  name="subject" value="javascript" checked="checked">javascript
+	 		<input type="button" value="버튼2" onclick="process2()">
+	 	</p>
+	 	<p> 
+	 		<label for="browser">브라우저 : </label>
+	 		<input type="radio" id="browser_chrome" name="browser" value="chrome" checked>chrome
+	 		<input type="radio" id="browser_firefox"  name="browser" value="firefox">firefox
+	 		<input type="radio" id="browser_msEdge"  name="browser" value="msEdge">msEdge
+	 		<input type="button" value="버튼3" onclick="process3()">
+	 	</p>
+	 	<p>
+	 		<label for="grade">학년 : </label>
+	 		<select id= "grade">
+	 			<option id="grade1" value="1">1학년</option>
+	 			<option id="grade2" value="2" selected>2학년</option>
+	 			<option id="grade3" value="3">3학년</option>
+	 		</select>
+	 		<input type="button" value="버튼4" onclick="process4()">
+	 	</p>
+	 	<h5>메세지</h5>
+	 	<div id="content1">원본메세지입니다. </div>
+	 	<p>
+	 		<input type="button" value="확인버튼5" onclick="process5_1()">
+	 		<input type="button" value="수정버튼5" onclick="process5_2('수정된 메세지 입니다.')">
+	 	</p>
+	 </fieldset>
+
+	<script type="text/javascript">
+	
+		/* 
+		document.getElementById("id");
+		 - HTML문서에 id와 일치한 값을 선택하는 선택자
+		 - 내용, 스타일, 속성 모두에 변화를 줄 수 있다. 
+		 - 요소가 발견되지 않으면 null을 반환
+		 - 속성 및 텍스트에 접근하려면 .속성 || .innerHTML 등 구문을 사용해야함
+			
+		 - checkbox/radioButton 특징 : name을 공유 -> getElementsByName 이용
+		   관리 위해 각각 id 부여하고 getElementsById로 가져오는 경우도 있음
+		 - div : .innerHTML
+		*/
+		
+		function process1() {	// getElementById
+			alert("process1 function 실행");
+			
+			// 1) .value : 태그의 value값을 가져온다. 
+			console.log("id : " + document.getElementById("id").value); // $("#id");
+			
+			// 2) .getAttribute("속성") : 태그의 속성값을 조회
+			console.log("attribute : " + document.getElementById("id").getAttribute("autofocus"));
+			
+			// 3) .setAttribute("속성", "값") : 태그의 속성값을 변경 
+			console.log("attribute : " + document.getElementById("id").getAttribute("disabled")); // 속성변경 전
+			document.getElementById("id").setAttribute("disabled", "disabled");
+			console.log("attribute : " + document.getElementById("id").getAttribute("disabled")); // 속성변경 후
+		}
+		
+		function process2() { 	// checkbox
+			alert("process2 function 실행");
+			
+			// 단순히 확인용
+			console.log("subject_javascript : " + document.getElementById("subject_javascript").value);
+			console.log("subject_javascript : " + document.getElementById("subject_javascript").checked);
+			console.log(document.getElementById("subject_javascript").getAttribute("checked"));
+			console.log(document.getElementsByName("subject")[1]);
+			
+			// 1) checkbox의 속성값 변경방법: .checked = true || false
+			console.log("subject_html : " + document.getElementById("subject_html").checked);
+			document.getElementById("subject_html").checked = true;
+			document.getElementById("subject_css").checked = true;
+			console.log("subject_html : " + document.getElementById("subject_html").checked);
+			document.getElementById("subject_javascript").checked = false;
+			console.log("subject_javascript : " + document.getElementById("subject_javascript").checked);
+		}
+		
+		function process3() {	// radioButton
+			alert("process3 function");
+		
+			document.getElementById("browser_chrome").checked = false;
+			document.getElementById("browser_firefox").checked = true;
+			document.getElementById("browser_msEdge").checked = false;
+		}
+		
+		function process4() { 	// select
+			alert("process4 function");
+		
+			// 1) select 타입의 속성값 변경 : .selected = true || false;
+			document.getElementById("grade1").selected = true;
+		}
+		
+		function process5_1() {
+			alert("process5_1 function");
+			alert(document.getElementById("content1").innerHTML);
+		}
+		
+		function process5_2(modifiedMsg) {
+			alert("process5_2 function");
+			
+			// 화면 텍스트 변경 : .innerHTML = "데이터";
+			document.getElementById("content1").innerHTML = modifiedMsg;
+		}
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Arguments 객체</title>
+<script type="text/javascript">
+
+	// arguments 객체로 가변인자 처리를 할 수 있다. 
+	function adder() {
+		for (var i = 0; i < arguments.length; i++) {
+			document.write(arguments[i] + " ");
+		}
+		document.write("<br>");
+	}
+	
+	// 자바에서 메소드 오버로딩. 자바스크립트는 유연하다. 
+	adder(1,3,5,7);
+	adder(1,3,5);
+	adder(1,3);
+	adder(1); 
+	 
+</script>
+</head>
+<body>
+
+</body>
+</html>
