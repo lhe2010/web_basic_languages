@@ -11,16 +11,80 @@
  		<input type="checkbox" name="subject" value="javascript">javascript
  		<input type="button" value="버튼" onclick="process1()">
 	 </p>
+	 <p> 
+	 		<label for="browser">브라우저 : </label>
+	 		<input type="radio" id="browser_chrome" name="browser" value="chrome" checked>chrome
+	 		<input type="radio" id="browser_firefox"  name="browser" value="firefox">firefox
+	 		<input type="radio" id="browser_msEdge"  name="browser" value="msEdge">msEdge
+	 		<input type="button" value="버튼" onclick="process2()">
+	 </p>
 	 
  <script type="text/javascript">
+ 	/*
+ 		# getElementsByName("#name");
+ 		 - HTML문서에 name이 일치한 값을 선택한다.
+		 - 데이터가 컬렉션 형태로 저장된다.
+ 	*/
  	function process1() {
  		alert("process1() is running...");
+ 		// 예시1) 배열의 크기 확인
  		console.log(document.getElementsByName("subject").length);
  		console.log("===================");
  		
+ 		// 예시2) 밸류값 확인해보기
  		var tempData = document.getElementsByName("subject");
- 		for(var i = 0; i < tempData.length; i++){
- 			console.log(tempData[i].value);
+ 		for(var i = 0; i < document.getElementsByName("subject").length; i++){
+ 			console.log(document.getElementsByName("subject")[i].value);
+ 			//console.log(tempData[i].value);
+ 		}
+ 		console.log("===================");
+
+ 		// 예시3) checked 된 값을 확인해보기
+ 		for(var i = 0; i < document.getElementsByName("subject").length; i++) {
+ 			if(document.getElementsByName("subject")[i].checked) {
+ 				console.log(document.getElementsByName("subject")[i].value + "(체크됨)");
+ 			} else {
+ 				console.log(document.getElementsByName("subject")[i].value); 				
+ 			}
+ 		}
+ 		
+ 		// 예시4) 특별한 값의 check를 변경해보기
+ 		document.getElementsByName("subject")[0].checked = true;
+ 		
+ 		// 예시5) 특정 속성값 부여
+ 		for(var i = 0; i < document.getElementsByName("subject").length; i++){
+ 			document.getElementsByName("subject")[i].setAttribute("disabled", "disabled");
+ 		}
+ 	}
+ 	
+ 	function process2(){
+ 		alert("process2() is running...");
+ 		var eleBrowser = document.getElementsByName("browser");
+ 		
+ 		// 예시1) 배열의 크기 확인
+ 		console.log(eleBrowser.length);
+ 		
+ 		// 예시2) 밸류값 확인해보기
+ 		for (var i = 0; i < eleBrowser.length; i++){
+ 			console.log(eleBrowser[i].value);
+ 		}
+ 		console.log("===================");
+ 		
+ 		// 예시3) checked 된 값을 확인해보기
+ 		for (var i = 0; i < eleBrowser.length; i++ ) {
+ 			if(eleBrowser[i].checked)
+ 				console.log(eleBrowser[i].value + " is checked");
+ 			else
+ 				console.log(eleBrowser[i].value);
+ 		}
+ 		
+ 		// 예시4) 특별한 값의 check를 변경해보기
+ 		eleBrowser[0].checked = true;
+ 		console.log("===================");
+ 		
+ 		// 예시5) 특정 속성값 부여
+ 		for(var i = 0; i < eleBrowser.length; i++) {
+ 			eleBrowser[i].setAttribute("disabled", "disabled");
  		}
  	}
  	

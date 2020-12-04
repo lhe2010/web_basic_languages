@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>노드</title>
+</head>
+<body>
+
+	<button onclick="addText1()">추가1</button>
+	<button onclick="addText2()">추가2</button>
+	<button onclick="removeText()">삭제</button>
+	<button onclick="removeAll()">전체삭제</button>
+
+	<h2>첫번째 단락</h2>
+	<div id="target1"></div>
+
+	<h2>두번째 단락</h2>
+	<div id="target2"></div>
+	
+	
+	<script type="text/javascript">
+		var cnt1 =1;
+		function addText1() {
+			// 브라우저>HTML>
+// 			window.document.createTextNode();
+			var newNode = document.createTextNode(cnt1 + "동적으로 텍스트 추가");	// 노드생성
+			document.getElementById("target1").appendChild(newNode);				// 노드를 추가
+			cnt1++;			
+		}
+		
+		var cnt2 = 1;
+		function addText2() {
+			var pTag = document.createElement("p");									// HTML태그생성
+			var newNode = document.createTextNode(cnt2 + "동적으로 텍스트 추가");	// 노드생성
+			pTag.appendChild(newNode);												// 태그와 텍스트를 연결
+			document.getElementById("target2").appendChild(pTag);					// 노드에 추가
+			cnt2++;
+		}
+		
+		function removeText() {
+			var node = document.getElementById("target2");
+			node.removeChild(node.childNodes[node.childNodes.length-1]);
+			cnt2--;
+		}
+		
+		function removeAll() {
+			var node = document.getElementById("target2");
+			for (var i = 0; i < node.childNodes.length; i++) {
+				node.removeChild(node.childNodes[i]);
+			}
+			cnt2 = 0;
+		}
+	</script>
+
+</body>
+</html>
