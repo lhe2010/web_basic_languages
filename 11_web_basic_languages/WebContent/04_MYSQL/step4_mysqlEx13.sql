@@ -111,11 +111,43 @@ INSERT INTO girl_group (name, debut) VALUES ('에프터 스쿨', '2009-11-25');
 INSERT INTO girl_group (name, debut) VALUES ('포미닛', '2009-08-28');
 
 # 확인) SONG 전체 테이블 조회
-
+SELECT 
+	*
+FROM 
+	SONG;
+    
 # 확인) GIRL_GROUP 전체 테이블 조회
-
+SELECT
+	*
+FROM 
+	GIRL_GROUP;
+    
 # 예시 1) INNER JOIN : ID와 HIT_SONG_ID가 같은 row만 조회.
-
+SELECT 
+	GG._ID, 
+    GG.NAME,
+    S.TITLE
+FROM
+	GIRL_GROUP GG
+		  JOIN SONG S 
+			ON GG.HIT_SONG_ID = S._ID;
+            
 # 예시 2) LEFT JOIN : GIRL_GROUP의 데이터는 모두 조회되고 ID와 HIT_SONG_ID가 같은 row를 조회.
-
+SELECT 
+	GG._ID, 
+    GG.NAME,
+    S.TITLE
+FROM
+		 GIRL_GROUP GG
+	LEFT OUTER JOIN SONG S 			# OUTER는 생략 가능하다.
+				 ON GG.HIT_SONG_ID = S._ID;
+            
 # 예시 3) RIGHT JOIN : SONG의 데이터는 모두 조회되고 ID와 HIT_SONG_ID가 같은 row를 조회
+SELECT 
+	GG._ID, 
+    GG.NAME,
+    S.TITLE
+FROM
+		  GIRL_GROUP GG
+	RIGHT OUTER JOIN SONG S 			# OUTER는 생략 가능하다.
+				  ON GG.HIT_SONG_ID = S._ID;
