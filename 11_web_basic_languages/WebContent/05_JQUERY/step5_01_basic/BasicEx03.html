@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ready 함수</title>
+<!-- 보통 스크립트는 헤더 사이에 위치  -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+	// 방법 1) JQuery를 명시하는 방법
+// 	jQuery(document).ready(function(){
+// 		$("body").css("background", "black");
+// 	});
+	
+	// 방법 2) 가장 보편적인 방법 *****
+	$(document).ready(function(){
+		$("body").css("background", "red");		// 쿼터는 싱글/더블 상관없음 
+	});
+	
+	// 방법 3) document를 생략하는 방법 **
+// 	$().ready(function(){
+// 		$("body").css("background", "blue");		
+// 	});
+	
+	// 방법 4) 모든 요소를 생략하는 방법
+// 	$(function(){
+// 		$("body").css("background", "green");				
+// 	});
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>
