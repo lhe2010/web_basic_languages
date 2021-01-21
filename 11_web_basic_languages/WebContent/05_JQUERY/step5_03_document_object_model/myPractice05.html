@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>나의 연습 예시 5</title>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+
+	$(document).ready(function(){
+		$('a[target]').css('background','#cccccc');				// 문법
+		$('input[size!="20"]').css('border','1px solid red'); 	// 속성 따옴표 !!
+		$('a[href~="http://www.naver.com"]').css('background','pink');	// =와 ~=
+	});
+
+</script>
+</head>
+<body>
+	<input type="text" size="10"><br>
+	<input type="text" size="20"><br>
+	<a href="http://www.naver.com     ">네이버</a><br>
+	<a href="http://www.naver.com" target="_blank">네이버</a><br>
+	<a href="http://www.daum.net">다음</a><br>
+	<a href="http://www.daum.net" target="_blank">다음</a>
+
+</body>
+</html>

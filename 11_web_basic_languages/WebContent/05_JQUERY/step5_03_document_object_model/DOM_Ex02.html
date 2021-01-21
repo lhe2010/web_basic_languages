@@ -17,9 +17,12 @@
 	
 	$(document).ready(function(){
 		$('#button').click(function(){
-			alert('[변경전]\n' + $('#target').val());	
+// 			alert('[변경전]\n' + $('#target').val());	
 			$('#target').val('변경된 데이터');
-			alert('[변경후]\n' + $('#target').val());
+// 			alert('[변경후]\n' + $('#target').val());
+			
+			// [참고] this
+			alert("[참고]\n"+ $(this).text());
 		});
 	});
 
