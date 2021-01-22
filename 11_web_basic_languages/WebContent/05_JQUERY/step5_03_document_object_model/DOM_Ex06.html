@@ -25,11 +25,41 @@
 			// 예시2 ) 선택된 옵션의 값을 다른 옵션값으로 변경하기**
 			var changeYear = prompt('변경하고 싶은 연도');
 // 			$(':radio[name="radioBox"]').val(changeYear).prop('checked', true);
-// 			$(':radio[name="radioBox"][value=changeYear]').prop('checked', true);
-			alert('선택된 value = ' + $(':radio[name="radioBox"]:checked').val());	// 필터
+			$(':radio[name="radioBox"][value="'+changeYear+'"]').prop('checked', true);
+// 			alert('선택된 value = ' + $(':radio[name="radioBox"]:checked').val());	// 필터
 			
-// 			// 예시3 ) 라디오박스 비활성화 하기
+ 			// 예시3 ) 라디오박스 비활성화 하기
 			$(':radio[name="radioBox"]').prop('disabled',true);
+		});
+		
+		// cf. 체크박스는 여러개를 선택할 수 있으므로 배열이용!!! || 체크박스마다 id부여해서 관리 
+		$('#changeCheckBox').click(function(){
+			// 예시1 ) 체크박스 관련 정보 확인하기 
+			alert('전체 체크박스 개수 : ' + $(':checkbox[name="checkBoxTest"]').length);
+			alert('선택된 체크박스 개수 : ' + $(':checkbox[name="checkBoxTest"]:checked').length );
+
+			// 예시2 ) 선택된 체크박스의 value 가져오기 
+			$(':checkbox[name="checkBoxTest"]:checked').each(function(){	// .each()
+				alert('선택된 체크박스의 value : ' + $(this).val());
+			});	
+			// 한번에 프린트해보기
+			var sampleVal = '';
+			$(':checkbox[name="checkBoxTest"]:checked').each(function(){	// .each()
+				sampleVal += $(this).val();
+				sampleVal += ' ';
+			});	
+			alert('[선택된 체크박스 값들 한번에보기]\n' + sampleVal);
+			
+		$(':checkbox[name="checkBoxTest"]').prop('checked',false);	// 참고) 전체 체크 해지
+			// 예시3 ) 선택된 체크박스의 값을 다른 값으로 변경하기
+			var changeCnt = prompt('수정하고싶은 체크박스의 개수');
+			for(var i = 0; i < changeCnt; i++) {
+				var changeYear = prompt('체크하고 싶은 연도 : ');
+				$('#year'+changeYear).prop('checked', true);
+			}
+			
+			// 예시4 ) 체크박스 비활성화 하기
+			$(':checkbox[name="checkBoxTest"]').prop('disabled',true);
 		});
 	});
 
@@ -44,7 +74,6 @@
     	<option value="2022">2022년</option>
     </select>
     <button id="changeSelectBox">셀렉트 데이터 변경</button>
-    
     <hr>
     
     <input type="radio" name="radioBox" value="2018">2018년
@@ -53,7 +82,6 @@
     <input type="radio" name="radioBox" value="2021" checked>2021년
     <input type="radio" name="radioBox" value="2022">2022년
 	<button id="changeRadioBox">라디오 데이터 변경</button>
-	
 	<hr>
 
 	<input type="checkbox" name="checkBoxTest" id="year2018" value="2018" /> 2018
